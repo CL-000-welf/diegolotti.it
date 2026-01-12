@@ -15,7 +15,6 @@ body {
     min-height: 100vh;
 }
 
-/* Cursore Desktop */
 @media (min-width: 1024px) {
     .cursor { 
         width: 25px; height: 25px; border: 1px solid var(--gold); 
@@ -29,8 +28,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px;
-    min-height: 100vh;
+    padding: 80px 20px;
 }
 
 .central-column {
@@ -39,46 +37,38 @@ body {
     text-align: center;
 }
 
-/* LOGO RIDOTTO DELL'80% (molto più piccolo) */
-.logo-hero { margin-bottom: 30px; }
+.logo-hero { margin-bottom: 40px; }
 .img-logo {
-    width: 100px; /* Dimensione ridotta per un look più luxury/minimal */
-    max-width: 30vw;
+    width: 400px;
+    max-width: 85vw;
     height: auto;
-    opacity: 0.9;
 }
 
-/* TITOLO: Fashion Designer su due righe */
 .main-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(3rem, 10vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1;
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    line-height: 0.85;
     letter-spacing: -2px;
-    text-transform: uppercase;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .main-title span {
-    font-family: 'Bodoni Moda', serif;
     display: block;
     font-style: italic;
     font-weight: 400;
     color: var(--gold);
-    text-transform: capitalize; /* Designer con la D maiuscola */
-    margin-top: -10px;
 }
 
 .main-description {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 1.7;
     color: var(--gray);
-    max-width: 520px;
+    max-width: 550px;
     margin: 0 auto 40px auto;
     font-weight: 200;
 }
 
-/* TAGS */
 .tags-container {
     display: flex;
     gap: 12px;
@@ -88,21 +78,14 @@ body {
 }
 
 .tag {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: 1px solid #1a1a1a;
-    padding: 10px 22px;
+    border: 1px solid #222;
+    padding: 12px 25px;
     transition: 0.3s;
-    color: var(--gray);
 }
 
-.tag:hover {
-    border-color: var(--gold);
-    color: var(--text);
-}
-
-/* WIP INDICATOR */
 .status-indicator {
     display: flex;
     flex-direction: column;
@@ -111,9 +94,9 @@ body {
 }
 
 .line-loader {
-    width: 40px;
+    width: 50px;
     height: 1px;
-    background: #1a1a1a;
+    background: #222;
     position: relative;
     overflow: hidden;
 }
@@ -127,34 +110,28 @@ body {
 }
 
 .gold-text {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gold);
 }
 
-/* FOOTER */
 footer {
     padding: 40px 5%;
+    border-top: 1px solid #111;
 }
 
 .footer-wrap {
     display: flex;
     justify-content: space-between;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 0.55rem;
+    font-size: 0.6rem;
     letter-spacing: 2px;
-    color: #333;
-    border-top: 1px solid #111;
-    padding-top: 20px;
+    color: #444;
 }
 
 @keyframes slide { 0% { left: -100%; } 100% { left: 100%; } }
 
-/* MOBILE */
 @media (max-width: 768px) {
-    .img-logo { width: 80px; }
-    .main-title { font-size: 3.5rem; }
-    .footer-wrap { flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .img-logo { width: 250px; }
+    .footer-wrap { flex-direction: column; align-items: center; gap: 10px; }
 }
