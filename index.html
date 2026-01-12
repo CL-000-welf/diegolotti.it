@@ -8,28 +8,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="cursor"></div>
 
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="Diego Lotti Logo" class="logo">
+            <img src="logo.png" alt="DL" class="logo">
         </div>
     </header>
 
     <main>
         <section class="content">
-            <div class="reveal-text">
-                <h1 class="title">Fashion<span>Designer</span></h1>
-            </div>
+            <h1 class="title">Fashion<span>Designer</span></h1>
             
-            <p class="subtitle">Curated aesthetics in textiles, high-horology, and automotive racing.</p>
+            <p class="subtitle">
+                Studente di moda, designer ed esperto di estetica tecnica. 
+                Un contenitore editoriale dove il tessuto incontra la precisione dell'alta orologeria e delle vetture sportive.
+            </p>
 
             <div class="grid-tags">
-                <div class="tag-item">Moda</div>
-                <div class="tag-item">Orologi</div>
-                <div class="tag-item">Motori</div>
-                <div class="tag-item">Musica</div>
+                <span class="tag-item">Moda</span>
+                <span class="tag-item">Orologi</span>
+                <span class="tag-item">Motori</span>
+                <span class="tag-item">Musica</span>
             </div>
 
             <div class="wip-container">
@@ -41,13 +41,12 @@
 
     <footer>
         <div class="footer-bottom">
-            <p>Diego Lotti — Digital Editorial</p>
-            <p>Milano / Italy</p>
+            <span>Diego Lotti — Digital Editorial</span>
+            <span>Milano / Italy</span>
         </div>
     </footer>
 
     <script>
-        // Effetto mouse dinamico
         const cursor = document.querySelector('.cursor');
         document.addEventListener('mousemove', e => {
             cursor.style.left = e.clientX + 'px';
