@@ -6,121 +6,166 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body { 
     background: var(--bg); 
     color: var(--text); 
     font-family: 'Inter', sans-serif; 
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    overflow-x: hidden; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra tutto orizzontalmente */
+    overflow-x: hidden;
 }
 
-/* Cursore solo su Desktop */
+/* Cursore Desktop */
 @media (min-width: 1024px) {
-    .cursor { width: 20px; height: 20px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; }
+    .cursor { 
+        width: 25px; height: 25px; border: 1px solid var(--accent); 
+        border-radius: 50%; position: fixed; pointer-events: none; 
+        z-index: 999; transform: translate(-50%, -50%);
+    }
     * { cursor: none; }
 }
 
-main { 
-    flex: 1; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 60px 5%; 
+/* Container Centrale */
+.main-container {
+    max-width: 800px; /* Larghezza colonna desktop */
+    width: 100%;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra logo e testi */
+    text-align: center;
+    flex: 1;
 }
 
-.hero {
-    text-align: center;
+/* LOGO - Più grande e centrale */
+.logo-wrapper {
+    margin-bottom: 60px;
     width: 100%;
-    max-width: 1200px;
+}
+
+.main-logo {
+    width: 450px; /* Molto grande su desktop */
+    max-width: 90vw;
+    height: auto;
+    animation: entrance 2s ease-out;
+}
+
+/* TESTI */
+.title-main {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -3px;
+}
+
+.title-main span {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+}
+
+.description-text {
+    margin: 40px auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 200;
+    color: var(--gray);
+    max-width: 550px;
+}
+
+/* TAGS - Fix per non essere tagliati */
+.tags-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid #222;
+    padding: 12px 24px;
+    transition: 0.4s;
+}
+
+.tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* WIP LOADER */
+.wip-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
-/* LOGO GRANDE CENTRALE */
-.main-logo-container {
-    margin-bottom: 40px;
-    animation: fadeInScale 1.8s ease;
+.line-loader {
+    width: 60px;
+    height: 1px;
+    background: #222;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-logo {
-    width: 350px; /* Grande su desktop */
-    max-width: 80vw;
-    height: auto;
-    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.2));
+.line-loader::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background: var(--accent);
+    animation: slide 2s infinite;
 }
 
-.title { 
-    font-family: 'Bodoni Moda', serif; 
-    font-size: clamp(3rem, 10vw, 7rem); 
-    text-transform: uppercase; 
-    line-height: 0.9; 
-    font-weight: 900; 
-    letter-spacing: -3px; 
-}
-.title span { display: block; font-style: italic; font-weight: 400; color: var(--accent); }
-
-.subtitle { 
-    margin: 30px auto; 
-    font-size: 1.1rem; 
-    font-weight: 200; 
-    max-width: 600px; 
-    color: var(--gray); 
-    line-height: 1.6; 
+.wip-label {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
 }
 
-/* FIX RESPONSIVE TAGS - NESSUN TAGLIO */
-.grid-tags { 
-    display: flex; 
-    gap: 12px; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    margin-top: 30px;
-}
-.tag-item { 
-    font-size: 0.7rem; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    border: 1px solid #333; 
-    padding: 10px 20px; 
-    white-space: nowrap; /* Impedisce che la singola parola si rompa */
+/* FOOTER */
+footer {
+    width: 100%;
+    padding: 40px 20px;
+    border-top: 1px solid #111;
 }
 
-.wip-container { 
-    margin-top: 50px; 
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
-    font-size: 0.75rem; 
-    letter-spacing: 3px; 
-    color: var(--accent); 
-    text-transform: uppercase; 
-}
-.loader { width: 40px; height: 1px; background: #333; position: relative; overflow: hidden; }
-.loader::after { content: ''; position: absolute; width: 100%; height: 100%; background: var(--accent); animation: load 2s infinite; }
-
-@keyframes load { 0% { left: -100%; } 100% { left: 100%; } }
-@keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
-footer { padding: 40px 5%; }
-.footer-bottom { 
-    display: flex; 
-    justify-content: space-between; 
-    font-size: 0.65rem; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    color: var(--gray); 
-    border-top: 1px solid #1a1a1a; 
-    padding-top: 20px; 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #444;
 }
 
-/* OTTIMIZZAZIONE MOBILE */
+/* ANIMAZIONI */
+@keyframes entrance {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slide {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* MOBILE FIXES */
 @media (max-width: 768px) {
-    .hero-logo { width: 220px; }
-    .title { letter-spacing: -1px; }
-    .footer-bottom { flex-direction: column; align-items: center; gap: 15px; text-align: center; }
-    .grid-tags { gap: 8px; }
-    .tag-item { padding: 8px 15px; font-size: 0.6rem; }
+    .main-logo { width: 280px; }
+    .main-container { padding: 40px 20px; }
+    .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+    .title-main { letter-spacing: -1px; }
 }
