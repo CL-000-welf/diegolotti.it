@@ -1,8 +1,8 @@
 :root {
-    --bg: #0a0a0a;
+    --bg: #050505;
     --text: #ffffff;
     --gold: #c5a059;
-    --gray: #777;
+    --gray: #888;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,68 +12,68 @@ body {
     color: var(--text); 
     font-family: 'Inter', sans-serif; 
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* Cursore Gold */
+/* Cursore Desktop */
 @media (min-width: 1024px) {
     .cursor { 
-        width: 30px; height: 30px; border: 1px solid var(--gold); 
+        width: 25px; height: 25px; border: 1px solid var(--gold); 
         border-radius: 50%; position: fixed; pointer-events: none; 
         z-index: 999; transform: translate(-50%, -50%);
-        transition: transform 0.1s ease;
     }
     * { cursor: none; }
 }
 
 .viewport {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 60px 20px;
+    min-height: 100vh;
 }
 
 .central-column {
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-/* LOGO MONUMENTALE */
-.logo-hero {
-    margin-bottom: 50px;
-    animation: fadeIn 2.5s ease;
-}
-
+/* LOGO RIDOTTO DELL'80% (molto più piccolo) */
+.logo-hero { margin-bottom: 30px; }
 .img-logo {
-    width: 500px; /* Molto grande su desktop */
-    max-width: 85vw;
+    width: 100px; /* Dimensione ridotta per un look più luxury/minimal */
+    max-width: 30vw;
     height: auto;
-    filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
+    opacity: 0.9;
 }
 
-/* TITOLO E TESTI */
+/* TITOLO: Fashion Designer su due righe */
 .main-title {
-    font-family: 'Bodoni Moda', serif;
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
-    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1;
     letter-spacing: -2px;
-    margin-bottom: 30px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
 }
 
 .main-title span {
+    font-family: 'Bodoni Moda', serif;
+    display: block;
+    font-style: italic;
+    font-weight: 400;
     color: var(--gold);
-    letter-spacing: 0;
+    text-transform: capitalize; /* Designer con la D maiuscola */
+    margin-top: -10px;
 }
 
 .main-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.8;
     color: var(--gray);
-    max-width: 650px;
+    max-width: 520px;
     margin: 0 auto 40px auto;
     font-weight: 200;
 }
@@ -81,20 +81,19 @@ body {
 /* TAGS */
 .tags-container {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .tag {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: 1px solid #222;
-    padding: 10px 25px;
-    border-radius: 50px; /* Stile pillola come nell'immagine */
-    transition: 0.3s ease;
+    border: 1px solid #1a1a1a;
+    padding: 10px 22px;
+    transition: 0.3s;
     color: var(--gray);
 }
 
@@ -103,41 +102,59 @@ body {
     color: var(--text);
 }
 
-/* STATUS */
+/* WIP INDICATOR */
 .status-indicator {
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.line-loader {
+    width: 40px;
+    height: 1px;
+    background: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+.line-loader::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background: var(--gold);
+    animation: slide 2s infinite;
 }
 
 .gold-text {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     color: var(--gold);
-    margin-right: 10px;
-    font-weight: 700;
 }
 
 /* FOOTER */
 footer {
-    padding: 40px 20px;
-    text-align: center;
+    padding: 40px 5%;
 }
 
-.footer-wrap p {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+.footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
     color: #333;
+    border-top: 1px solid #111;
+    padding-top: 20px;
 }
 
-/* ANIMAZIONI */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes slide { 0% { left: -100%; } 100% { left: 100%; } }
 
-/* RESPONSIVE MOBILE */
+/* MOBILE */
 @media (max-width: 768px) {
-    .img-logo { width: 300px; }
-    .main-title { font-size: 2.8rem; letter-spacing: -1px; }
-    .tag { padding: 8px 18px; font-size: 0.6rem; }
+    .img-logo { width: 80px; }
+    .main-title { font-size: 3.5rem; }
+    .footer-wrap { flex-direction: column; align-items: center; gap: 10px; text-align: center; }
 }
