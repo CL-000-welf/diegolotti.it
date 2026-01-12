@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Lotti | Fashion Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #000000; --accent: #7a7a7a; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Header & Logo */
+        header { padding: 40px; text-align: center; }
+        .logo { font-weight: 800; font-size: 2.5rem; letter-spacing: -2px; text-transform: lowercase; }
+        .logo span { color: var(--accent); }
+
+        /* Main Content */
+        main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; animation: fadeIn 1.5s ease; }
+        
+        h2 { font-size: clamp(2rem, 8vw, 5rem); line-height: 0.9; margin: 0; text-transform: uppercase; font-weight: 800; }
+        .description { font-size: 1.2rem; margin-top: 20px; max-width: 600px; font-weight: 300; line-height: 1.6; }
+        
+        /* Pills per gli interessi secondari */
+        .tags { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .tag { border: 1px solid #ddd; padding: 8px 18px; border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        footer { padding: 40px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">diego<span>lotti</span></div>
+    </header>
+
+    <main>
+        <h2>Fashion<br>Design<span>_</span></h2>
+        <p class="description">
+            Studente di moda, osservatore del dettaglio. Un contenitore dove l'estetica tessile incontra la precisione meccanica e il dinamismo sportivo.
+        </p>
+        
+        <div class="tags">
+            <div class="tag">High Fashion</div>
+            <div class="tag">Horology</div>
+            <div class="tag">Automotive</div>
+            <div class="tag">Sound & Events</div>
+        </div>
+    </main>
+
+    <footer>
+        In progress 2026 — Coming Soon
+    </footer>
+
+</body>
+</html>
